@@ -68,7 +68,7 @@ test ('Fulfillment', async () => {
     await page.waitForTimeout(2000);
     await page.fill('input[name="username"]','hotwax.user');
     const usernameEnteredValue = await page.$eval('input[name="username"]', username => username.value); 
-    await page.locator('input[name="password"]').fill('hotwax@786');
+    await page.locator('input[name="password"]').fill('');
     await page.waitForTimeout(2000);
     await page.keyboard.press('Enter');
     await page.waitForTimeout(2000);
