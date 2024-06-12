@@ -31,4 +31,7 @@ jobs:
         run: npx playwright install
 
       - name: Run Playwright automation script
-        run: npx playwright test
+        env:
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+        run: npx playwright test fulfillment_optimized.spec.js
