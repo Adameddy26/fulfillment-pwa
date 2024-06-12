@@ -35,3 +35,10 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
         run: npx playwright test fulfillment_optimized.spec.js
+
+      - name: Upload screenshot on error
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: error-screenshot
+          path: error-screenshot.png
