@@ -24,15 +24,15 @@ jobs:
       - name: Install Playwright
         run: npx playwright install
 
-      - name: Run Playwright automation script
-        run: npx playwright test
-        env:
-          USERNAME: ${{ secrets.USERNAME }}
-          PASSWORD: ${{ secrets.PASSWORD }}
-
       - name: Upload screenshot on error
         if: ${{ failure() }}
         uses: actions/upload-artifact@v2
         with:
           name: error-screenshot
           path: error-screenshot-*.png
+
+      - name: Run Playwright automation script
+        run: npx playwright test
+        env:
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
