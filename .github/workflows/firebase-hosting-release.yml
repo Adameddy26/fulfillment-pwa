@@ -4,8 +4,8 @@
 name: Deploy to Firebase Hosting on release
 'on':
   push:
-    tags:        
-      - '*' # Push events to every tag not containing / Refer https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#patterns-to-match-branches-and-tags
+    branches:        
+      - main # Push events to every tag not containing / Refer https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#patterns-to-match-branches-and-tags
 jobs:
   run-playwright-automation:
     runs-on: ubuntu-latest
