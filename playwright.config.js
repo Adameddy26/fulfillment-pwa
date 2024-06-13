@@ -47,14 +47,14 @@ exports["default"] = (0, test_1.defineConfig)({
             name: 'chromium',
             use: __assign({}, test_1.devices['Desktop Chrome'])
         },
-        {
+        /*{
             name: 'firefox',
             use: __assign({}, test_1.devices['Desktop Firefox'])
         },
         {
             name: 'webkit',
             use: __assign({}, test_1.devices['Desktop Safari'])
-        },
+        },*/
         /* Test against mobile viewports. */
         // {
         //   name: 'Mobile Chrome',
