@@ -17,6 +17,7 @@ test('Fulfillment', async () => {
     await page.keyboard.press('Enter');
     await page.waitForTimeout(2000);
     const username1 = process.env.USERNAME;
+    console.log('process.env.USERNAME', process.env.USERNAME, username1)
     const password1 = process.env.PASSWORD;
     await page.fill('input[name="username"]', username1);
     await page.fill('input[name="password"]', password1);
