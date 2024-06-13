@@ -1,7 +1,7 @@
 const { test, expect, chromium } = require('@playwright/test');
 test('Fulfillment', async () => {
   test.setTimeout(8000000);
-  const browser = await chromium.launch({headless:false});
+  const browser = await chromium.launch({headless:true});
   const context = await browser.newContext({recordVideo: {dir: 'videos/'}}, {viewport: {width:1350, height:650}});
   const page = await context.newPage();
 
