@@ -133,6 +133,7 @@ test('Fulfillment', async () => {
   async function pickPackShipOrder() {
     await page.locator('.md.chip-outline.ion-activatable').first().click();
     await page.waitForSelector('.popover-viewport', {visible:true, timeout:10000});
+    await page.waitForTimeout(2000);
     await page.locator('ion-item:has-text("Pick order")').click();
     await page.waitForTimeout(4000);
     await page.locator('ion-item:has-text("Copy ID")').click();
