@@ -34,7 +34,7 @@ jobs:
         env:
           USERNAME: ${{ secrets.USERNAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
-        run: npx playwright test fulfillment_optimized.spec.js
+        run: npx playwright test fulfillment.spec.js
 
       - name: Upload screenshot on error
         if: ${{ failure() }}
