@@ -19,4 +19,4 @@ jobs:
         run: npm install
 
       - name: Run Playwright script
-        run: node fulfillment.spec.js
+        run: node tests/fulfillment.spec.js
