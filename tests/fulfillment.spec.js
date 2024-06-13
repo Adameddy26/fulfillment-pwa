@@ -16,10 +16,10 @@ test('Fulfillment', async () => {
     await page.waitForTimeout(2000);
     await page.keyboard.press('Enter');
     await page.waitForTimeout(2000);
-    //const username1 = process.env.USERNAME;
-    //const password1 = process.env.PASSWORD;
-    await page.fill('input[name="username"]', 'hotwax.user');
-    await page.fill('input[name="password"]', 'hotwax@786');
+    const username1 = process.env.USERNAME;
+    const password1 = process.env.PASSWORD;
+    await page.fill('input[name="username"]', username1);
+    await page.fill('input[name="password"]', password1);
     await page.waitForTimeout(2000);
     await page.keyboard.press('Enter');
     await page.waitForSelector('#app > ion-app > ion-router-outlet > div:nth-child(1) > ion-content > main', {visible:true, timeout:10000});
@@ -224,7 +224,7 @@ test('Fulfillment', async () => {
     };
 
     const { username, instance, appVersion, buildDateTime } = await getUserDetails(selectors);
-    expect(username).toContain('hotwax.user');
+    expect(username).toContain(username1);
     expect(instance).toContain('ucg-uat');
 
     await page.locator('#main-content > div > ion-content > section:nth-child(3) > ion-card:nth-child(3) > ion-item').click();
