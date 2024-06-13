@@ -16,11 +16,8 @@ test('Fulfillment', async () => {
     await page.waitForTimeout(2000);
     await page.keyboard.press('Enter');
     await page.waitForTimeout(2000);
-    const username1 = process.env.USERNAME;
-    console.log('process.env.USERNAME', process.env.USERNAME, username1)
-    const password1 = process.env.PASSWORD;
-    await page.fill('input[name="username"]', username1);
-    await page.fill('input[name="password"]', password1);
+    await page.fill('input[name="username"]', process.env.USERNAME);
+    await page.fill('input[name="password"]', process.env.PASSWORD);
     await page.waitForTimeout(2000);
     await page.keyboard.press('Enter');
     await page.waitForSelector('#app > ion-app > ion-router-outlet > div:nth-child(1) > ion-content > main', {visible:true, timeout:10000});
@@ -225,7 +222,7 @@ test('Fulfillment', async () => {
     };
 
     const { username, instance, appVersion, buildDateTime } = await getUserDetails(selectors);
-    expect(username).toContain(username1);
+    expect(username).toContain(process.env.USERNAME);
     expect(instance).toContain('ucg-uat');
 
     await page.locator('#main-content > div > ion-content > section:nth-child(3) > ion-card:nth-child(3) > ion-item').click();
