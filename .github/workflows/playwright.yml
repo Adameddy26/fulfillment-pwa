@@ -6,7 +6,6 @@ on:
 jobs:
   run-playwright:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -14,13 +13,26 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16'
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
 
-      - name: Install Playwright Browsers
+      - name: Generate .env file
+        run: cp .env.example .env
+
+      - name: Install Playwright
         run: npx playwright install
 
-      - name: Run Playwright tests
+      - name: Run Playwright automation script
         run: npx playwright test
+        env:
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+
+      - name: Upload screenshot on error
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: error-screenshot
+          path: error-screenshot-*.png
