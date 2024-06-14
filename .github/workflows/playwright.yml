@@ -36,3 +36,4 @@ jobs:
         env:
           USERNAME: ${{ secrets.USERNAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
+          INSTANCE: ${{ secrets.INSTANCE }}
