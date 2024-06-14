@@ -274,7 +274,7 @@ test('Fulfillment', async () => {
     console.log(`${dropdownItems.length} facilities found`);
 
     let facilityRunCount = 0;
-    for (let i = 12; i < dropdownItems.length && facilityRunCount < 3; i++) {
+    for (let i = 0; i < dropdownItems.length && facilityRunCount < 3; i++) {
       await dropdownItems[i].scrollIntoViewIfNeeded();
       const facilityName = await dropdownItems[i].textContent();
       await dropdownItems[i].click();
