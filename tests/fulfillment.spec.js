@@ -1,9 +1,10 @@
 const { test, expect, chromium } = require('@playwright/test');
 test('Fulfillment', async () => {
   test.setTimeout(8000000);   // Setting a long timeout to handle long test runs
-  const browser = await chromium.launch({headless:false});
-  const context = await browser.newContext({recordVideo: {dir: 'videos/'}}, {viewport: {width:1350, height:650}});
+  const browser = await chromium.launch({headless:true});
+  const context = await browser.newContext({recordVideo: {dir: 'videos/'}});
   const page = await context.newPage();
+  await page.setViewport({ width: 1350, height: 650 });
 
   // Function to login to launchpad
   async function launchpadLogin() {
