@@ -4,7 +4,7 @@ test ('Launchpad', async () => {
 
   //Set up the environment
   const browser = await chromium.launch(); 
-  const context = await browser.newContext({headless: false, viewport: { width: 1400, height: 700 }}); // launch the browser in a visible window and set the visible portion of the web page within the browser window.
+  const context = await browser.newContext({headless: true, viewport: { width: 1350, height: 650 }}); // launch the browser in a visible window and set the visible portion of the web page within the browser window.
   const page = await context.newPage();
   
   // try-catch block for error handling
