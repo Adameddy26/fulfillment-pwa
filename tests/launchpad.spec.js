@@ -44,13 +44,13 @@ test ('Launchpad', async () => {
     // Login with user credentials
     await page.click('text=Login');
     await page.waitForTimeout(2000);
-    await page.fill('input[name="instanceUrl"]', 'dev-oms');
+    await page.fill('input[name="instanceUrl"]', process.env.INSTANCE);
     const enteredValue = await page.$eval('input[name="instanceUrl"]', el => el.value); // retrives the value attribute of the input element with name="instanceUrl
     await page.waitForTimeout(2000);
     await page.keyboard.press('Enter');
     await page.waitForTimeout(2000);
-    await page.locator('input[name="username"]').fill('hotwax.user');
-    await page.locator('input[name="password"]').fill('hotwax@786');
+    await page.locator('input[name="username"]').fill(process.env.USERNAME);
+    await page.locator('input[name="password"]').fill(process.env.PASSWORD);
     await page.waitForTimeout(2000);
     await page.keyboard.press('Enter');
     await page.waitForTimeout(2000);
