@@ -133,13 +133,16 @@ test('Fulfillment', async () => {
     await page.waitForSelector('.popover-viewport', {visible:true, timeout:10000});
     await page.waitForTimeout(2000);
     await page.locator('ion-item:has-text("Pick order")').click();
+    console.log('a');
     await page.waitForTimeout(4000);
     await page.locator('ion-item:has-text("Copy ID")').click();
     await page.waitForTimeout(2000);
+    console.log('b');
     await page.waitForSelector('.item.md.item-lines-default.item-fill-none.item-has-interactive-control.in-list.ion-activatable.ion-focusable.item-label', {visible:true, timeout:10000});
     const pickerList = await page.$$('.item.md.item-lines-default.item-fill-none.item-has-interactive-control.in-list.ion-activatable.ion-focusable.item-label');
     if (pickerList.length == 0){
       console.error("No picker found in picklist");
+      console.log('c');
       const crossButton = '.md.button.button-clear.in-toolbar.in-buttons.button-has-icon-only.ion-activatable.ion-focusable';
       if ((await page.isVisible(crossButton)) && (await page.isEnabled(crossButton))) await page.click(crossButton);
       await page.waitForTimeout(2000);
@@ -148,20 +151,24 @@ test('Fulfillment', async () => {
     const randomPicker = pickerList[Math.floor(Math.random() * pickerList.length)];
     await randomPicker.click();
     await page.waitForTimeout(2000);
+    console.log('d');
     const ionFabButton = 'ion-modal > div > ion-fab > ion-fab-button';
     if (await page.isDisabled(ionFabButton)) {
       console.log('Picklist not saved');
     } 
     else {
+      console.log('e');
       await page.click(ionFabButton);
     }
     await newTab();
     await page.waitForTimeout(2000);
     await page.locator('ion-label:has-text("In Progress")').click();
     await page.waitForTimeout(2000);
+    console.log('g');
     await page.locator('.searchbar-input.sc-ion-searchbar-md').click();
     await page.keyboard.press('Control+V');
     await page.keyboard.press('Enter');
+    console.log('h');
     await page.waitForTimeout(4000);
     await packShipButton();
     await page.waitForSelector('.alert-wrapper.ion-overlay-wrapper.sc-ion-alert-md', {visible:true, timeout:10000});
@@ -186,8 +193,10 @@ test('Fulfillment', async () => {
   async function newTab() {
     const newTabPopup = page.waitForEvent('popup');
     const newTab = await newTabPopup;
+    console.log('f');
     await newTab.waitForLoadState();
     await page.waitForTimeout(4000);
+    console.log('i');
     await newTab.close();
   }
 
