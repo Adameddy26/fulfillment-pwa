@@ -4,8 +4,10 @@ test('Fulfillment', async () => {
   const browser = await chromium.launch({headless:true});
   const context = await browser.newContext({recordVideo: {dir: 'videos/'}});
   const page = await context.newPage();
-  await page.setViewport({ width: 1350, height: 650 });
-
+  await page.setViewportSize({
+  width: 1350,
+  height: 650,
+});
   // Function to login to launchpad
   async function launchpadLogin() {
     await page.goto("https://launchpad.hotwax.io");
