@@ -195,7 +195,6 @@ test('Fulfillment', async () => {
     const newTab = await newTabPopup;
     console.log('f');
     await newTab.waitForLoadState();
-    await page.waitForTimeout(4000);
     console.log('i');
     await newTab.close();
   }
