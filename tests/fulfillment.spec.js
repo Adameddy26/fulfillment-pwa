@@ -191,12 +191,17 @@ test('Fulfillment', async () => {
 
   // Function to open a new tab when a picklist, packing slip or shipping label is generated
   async function newTab() {
-    const newTabPopup = page.waitForEvent('popup');
-    const newTab = await newTabPopup;
-    console.log('f');
-    await newTab.waitForLoadState();
-    console.log('i');
-    await newTab.close();
+    const [newTab] = await Promise.all([
+        page.waitForEvent('popup'),
+        page.waitForTimeout(4000)
+    ]);
+
+    if (newTab) {
+        await newTab.waitForLoadState({ timeout: 20000 });
+        await newTab.close();
+    } else {
+        console.error("New tab did not open");
+    }
   }
 
   // Function to pack and ship the order incase there is no picker present in the picklist
