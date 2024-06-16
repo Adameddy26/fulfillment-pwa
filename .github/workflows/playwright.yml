@@ -32,7 +32,7 @@ jobs:
           path: error-screenshot-*.png
 
       - name: Run Playwright automation script
-        run: DEBUG=pw:api npx playwright test --headed=false
+        run: DEBUG=pw:api npx playwright test --headed=true
         env:
           USERNAME: ${{ secrets.USERNAME }}
           PASSWORD: ${{ secrets.PASSWORD }}
