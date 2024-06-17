@@ -173,10 +173,13 @@ test('Fulfillment', async () => {
     await packShipButton();
     await page.waitForSelector('.alert-wrapper.ion-overlay-wrapper.sc-ion-alert-md', {visible:true, timeout:10000});
     await page.waitForTimeout(2000);
+    console.log('k');
     await page.locator('.alert-tappable.alert-checkbox.alert-checkbox-button.ion-focusable.sc-ion-alert-md').nth(0).click();
     await page.waitForTimeout(1000);
+    console.log('l');
     await page.locator('.alert-tappable.alert-checkbox.alert-checkbox-button.ion-focusable.sc-ion-alert-md').nth(1).click();
     await page.waitForTimeout(2000);
+    console.log('m');
     await page.locator('.alert-button.ion-focusable.ion-activatable.alert-button-role-confirm.sc-ion-alert-md').click();
     await newTab();
     await page.waitForTimeout(2000);
