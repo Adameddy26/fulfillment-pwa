@@ -241,7 +241,7 @@ test('Fulfillment', async () => {
     console.log('i');
     if (await page.isVisible('.md.button.button-solid.ion-activatable.ion-focusable')) {
       console.log('j');
-      await page.click('.md.button.button-solid.ion-activatable.ion-focusable');
+      await page.click('#view-size-selector > div > div.results > ion-card > div.actions > div:nth-child(1) > ion-button.md.button.button-solid.ion-activatable.ion-focusable');
       console.log('pack/ship button clicked');
       await page.waitForTimeout(3000);
       return true;
