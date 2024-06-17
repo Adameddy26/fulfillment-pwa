@@ -197,7 +197,7 @@ test('Fulfillment', async () => {
     ]);
 
     if (newTab) {
-        await newTab.waitForLoadState(load, { timeout: 10000 });
+        await newTab.waitForLoadState('load', { timeout: 10000 });
         await newTab.close();
     } else {
         console.error("New tab did not open");
