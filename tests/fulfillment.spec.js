@@ -199,6 +199,7 @@ test('Fulfillment', async () => {
     if (newTab) {
         await newTab.waitForLoadState('load', { timeout: 10000 });
         await newTab.close();
+        console.log('f');
     } else {
         console.error("New tab did not open");
     }
@@ -234,7 +235,9 @@ test('Fulfillment', async () => {
 
   // Function to click the pack/ship button
   async function packShipButton() {
+    console.log('i');
     if (await page.isVisible('.md.button.button-solid.ion-activatable.ion-focusable')) {
+      console.log('j');
       await page.click('.md.button.button-solid.ion-activatable.ion-focusable');
       console.log('pack/ship button clicked');
       await page.waitForTimeout(3000);
